@@ -1,0 +1,1 @@
+%CMAKE_PREFIX_PATH% <- <Qt root>\<version>\msvc2017_64\lib\cmake
