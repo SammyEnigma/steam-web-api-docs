@@ -3,6 +3,7 @@
 
 #include "settings.hpp"
 #include "network.hpp"
+#include "types/item_editor_factory.hpp"
 
 
 namespace application
@@ -19,10 +20,12 @@ namespace application
 
         CSettings& Settings();
         CNetwork& Network();
+        CItemEditorFactory& ItemEditorFactory();
 
     private:
         CSettings m_Settings;
         CNetwork m_Network;
+        CItemEditorFactory m_ItemEditorFactory;
     };
 }
 
@@ -44,5 +47,12 @@ inline application::CNetwork* Network()
 {
     application::CApplication* app = Application();
     return app ? &app->Network() : nullptr;
+}
+
+
+inline application::CItemEditorFactory* ItemEditorFactory()
+{
+    application::CApplication* app = Application();
+    return app ? &app->ItemEditorFactory() : nullptr;
 }
 // Кириллица.

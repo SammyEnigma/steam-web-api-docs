@@ -1,6 +1,8 @@
 #include "parameter.hpp"
 
 #include "types/api_method_parameter.hpp"
+#include "types/item_editor_factory.hpp"
+#include "application.hpp"
 
 
 namespace application
@@ -8,7 +10,10 @@ namespace application
     CParameter::CParameter(const CAPIMethodParameter* Template_)
         : m_Parameter(Template_)
     {
-        // TODO: инициализация значением по умолчанию.
+        // TODO: Один из параметров - key, его сделать вычисляемым из настроек.
+        CItemEditorFactory* ief = ItemEditorFactory();
+        if (ief && m_Parameter)
+            m_Value = ief->CreateVariant(GetType());
     }
 
     QString CParameter::GetName() const

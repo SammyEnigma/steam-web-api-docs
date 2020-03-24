@@ -30,5 +30,11 @@ namespace application
     {
         return m_Network;
     }
+
+
+    CItemEditorFactory& CApplication::ItemEditorFactory()
+    {
+        return m_ItemEditorFactory;
+    }
 }
 // Кириллица.

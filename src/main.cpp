@@ -6,6 +6,7 @@
 
 #include "application.hpp"
 #include "gui/main/dlg_main_window.hpp"
+#include "types/item_editor_factory.hpp"
 
 
 int main(int Argc_, char** Argv_)
