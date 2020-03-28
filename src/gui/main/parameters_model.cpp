@@ -53,6 +53,8 @@ namespace application
             return Qt::AlignCenter;
         else if (role == Qt::ToolTipRole)
             return toolTipData(param, col);
+        else if (role == Qt::EditRole)
+            return editData(param, col);
 
         return {};
     }
@@ -78,6 +80,41 @@ namespace application
         }
         
         return QAbstractTableModel::headerData(section, orientation, role);
+    }
+
+
+    Qt::ItemFlags CParametersModel::flags(const QModelIndex& index) const
+    {
+        Qt::ItemFlags f = QAbstractTableModel::flags(index);
+        if (index.column() == Value)
+            f |= Qt::ItemIsEditable;
+
+        return f;
+    }
+
+
+    bool CParametersModel::setData(const QModelIndex& index, const QVariant& value, int role /*= Qt::EditRole*/)
+    {
+        if (!index.isValid())
+            return {};
+
+        CParameter* param = getParameter(index.row());
+        int col = index.column();
+
+        if (!param || col != Value)
+            return {};
+
+        if (role == Qt::EditRole && col == Value) 
+        {
+            if (param->GetValue().userType() == value.userType())
+            {
+                param->SetValue(value);
+                Q_EMIT dataChanged(index, index, { role });
+                return true;
+            }
+        }
+
+        return false;
     }
 
 
@@ -145,5 +182,13 @@ namespace application
         return Num_ >= 0 && Num_ < m_vParameters.count() ? &m_vParameters[Num_] : nullptr;
     }
 
+
+    QVariant CParametersModel::editData(const CParameter* Parameter_, int Column_) const
+    {
+        if (!Parameter_ || Column_ != Value)
+            return {};
+
+        return Parameter_->GetValue();
+    }
 }
 // Кириллица.

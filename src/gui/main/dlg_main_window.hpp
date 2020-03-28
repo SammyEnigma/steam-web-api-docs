@@ -24,6 +24,7 @@ namespace application
         void onReloadMethods();
         void onConnectionSettings();
         void onExit();
+        void onMethodSelected(const CAPIInterface* Interface_, const CAPIMethod* Method_);
         
     private:
         std::unique_ptr<Ui::MainWindow> ui;

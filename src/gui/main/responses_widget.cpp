@@ -4,7 +4,7 @@
 namespace application
 {
     CResponsesWidget::CResponsesWidget(QWidget* Parent_)
-        : QTabWidget(Parent_)
+        : CTabWidget(Parent_)
     {
         connect(this, &CResponsesWidget::tabCloseRequested, this, &CResponsesWidget::onClosePage);
     }

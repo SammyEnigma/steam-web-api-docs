@@ -1,14 +1,15 @@
 #pragma once
-#include "QTabWidget"
+#include "gui/widgets/tab_widget.hpp"
 
 
 namespace application { class CAPIInterface; }
 namespace application { class CAPIMethod; }
+class QMouseEvent;
 
 namespace application
 {
     /// Widget to display Steam Web API methods' details.
-    class CRequestsWidget : public QTabWidget
+    class CRequestsWidget final : public CTabWidget
     {
         Q_OBJECT;
         Q_DISABLE_COPY(CRequestsWidget);

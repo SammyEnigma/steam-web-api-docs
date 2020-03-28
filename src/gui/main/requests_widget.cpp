@@ -1,5 +1,8 @@
 #include "requests_widget.hpp"
 
+#include "QMouseEvent"
+#include "QTabBar"
+
 #include "request_page.hpp"
 #include "types/api_interface.hpp"
 #include "types/api_method.hpp"
@@ -8,7 +11,7 @@
 namespace application
 {
     CRequestsWidget::CRequestsWidget(QWidget* Parent_)
-        : QTabWidget(Parent_)
+        : CTabWidget(Parent_)
     {
         connect(this, &CRequestsWidget::tabCloseRequested, this, &CRequestsWidget::onCloseTab);
     }
@@ -40,6 +43,5 @@ namespace application
         removeTab(Index_);
         pPage->deleteLater();
     }
-
 }
 // Кириллица.

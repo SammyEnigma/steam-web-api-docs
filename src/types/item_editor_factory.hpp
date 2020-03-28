@@ -25,6 +25,7 @@ namespace application
         void registerTypeAndEditor(const QString& TypeName_)
         {
             int qtTypeId = qMetaTypeId<TType>();
+            Q_ASSERT(!m_TypeNameToTypeId.contains(TypeName_));
             m_TypeNameToTypeId[TypeName_] = qtTypeId;
             registerEditor(qtTypeId, new QStandardItemEditorCreator<TEditor>());
         }

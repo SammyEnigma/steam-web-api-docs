@@ -30,7 +30,7 @@ namespace application
         connect(ui->actQuit, &QAction::triggered, this, &CDlgMainWindow::onExit);
         connect(ui->actConnectionSettings, &QAction::triggered, this, &CDlgMainWindow::onConnectionSettings);
 
-        connect(ui->methodsTree, &CAPITree::MethodSelected, ui->tabRequests, &CRequestsWidget::AddPage);
+        connect(ui->methodsTree, &CAPITree::MethodSelected, this, &CDlgMainWindow::onMethodSelected);
 
         QSettings s;
         s.beginGroup(objectName());
@@ -90,6 +90,13 @@ namespace application
     {
         close();
     }
+
+
+    void CDlgMainWindow::onMethodSelected(const CAPIInterface* Interface_, const CAPIMethod* Method_)
+    {
+        ui->tabRequests->AddPage(Interface_, Method_);
+    }
+
 }
 // Кириллица.
 
