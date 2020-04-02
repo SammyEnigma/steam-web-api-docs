@@ -17,7 +17,7 @@ namespace application
 
     void CUint32Editor::SetValue(quint32 Value_)
     {
-        setValue(static_cast<qint64>(Value_));
+        setValue(static_cast<quint64>(Value_));
     }
 }
 // Кириллица.
