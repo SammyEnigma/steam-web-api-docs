@@ -1,22 +1,28 @@
 #pragma once
-#include "QLabel"
+#include <memory>
+
+#include "QLineEdit"
+#include "gui/hex_editor/dlg_hex_editor.hpp"
 
 
 namespace application
 {
-    /// Item editor for "rawbinary" (???) type.
-    class CRawBinaryEditor : public QLabel
+    /// Item editor for "rawbinary" (QByteArray) type.
+    class CRawBinaryEditor : public CDlgHexEditor
     {
         Q_OBJECT;
         Q_DISABLE_COPY(CRawBinaryEditor);
-        Q_PROPERTY(QByteArray value READ GetValue WRITE SetValue USER true);
+        Q_PROPERTY(QByteArray value READ GetData WRITE SetData USER true);
 
     public:
         CRawBinaryEditor(QWidget* Parent_);
-        ~CRawBinaryEditor() = default;
-        
-        QByteArray GetValue() const;
-        void SetValue(const QByteArray& Value_);
+        ~CRawBinaryEditor();
+
+        //QByteArray GetValue() const;
+        //void SetValue(const QByteArray& Value_);
+
+    private:
+        QByteArray m_Value;
     };
 }
 // Кириллица.

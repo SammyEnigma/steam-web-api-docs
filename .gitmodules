@@ -1,0 +1,3 @@
+[submodule "deps/QHexView/src"]
+	path = deps/QHexView/src
+	url = git@github.com:Dax89/QHexView.git

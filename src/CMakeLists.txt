@@ -10,6 +10,6 @@ qt5_wrap_ui(UI_CPP ${UI_SRC})
 auto_source("${CPP_SRC};${CPP_INC};${UI_SRC};${RCC_SRC}")
 
 add_executable(${PROJECT_NAME} WIN32 ${CPP_SRC} ${CPP_INC} ${UI_SRC} ${RCC_SRC} ${UI_CPP})
-target_link_libraries(${PROJECT_NAME} Qt5::Core Qt5::Widgets Qt5::Network)
+target_link_libraries(${PROJECT_NAME} Qt5::Core Qt5::Widgets Qt5::Network QHexView)
 
 # Кириллица.

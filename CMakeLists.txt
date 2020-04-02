@@ -33,3 +33,4 @@ find_package(Qt5Network)
 #find_package(Lua)
 
 add_subdirectory(src)
+add_subdirectory(deps/QHexView)
