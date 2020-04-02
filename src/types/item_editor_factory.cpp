@@ -26,14 +26,14 @@ namespace application
     {
         setDefaultFactory(this);
 
-        registerTypeAndEditor<QString, CStringEditor>("string");
-        registerTypeAndEditor<quint32, CUint32Editor>("uint32");
-        registerTypeAndEditor<quint64, CUint64Editor>("uint64");
-        registerTypeAndEditor<qint32, CInt32Editor>("int32");
-        registerTypeAndEditor<bool, CBoolEditor>("bool");
-        registerTypeAndEditor<QByteArray, CRawBinaryEditor>("rawbinary");
-        registerTypeAndEditor<QJsonObject, CMessageEditor>("{message}");
-        registerTypeAndEditor<int, CEnumEditor>("{enum}");
+        registerTypeAndEditor<QString, CStringEditor>("string"); // +
+        registerTypeAndEditor<quint32, CUint32Editor>("uint32"); // +
+        registerTypeAndEditor<quint64, CUint64Editor>("uint64"); // +
+        registerTypeAndEditor<qint32, CInt32Editor>("int32"); // +
+        registerTypeAndEditor<bool, CBoolEditor>("bool"); // IDOTA2Match_570::GetMatchDetails +
+        registerTypeAndEditor<QByteArray, CRawBinaryEditor>("rawbinary"); // ISteamUserAuth::AuthenticateUser
+        registerTypeAndEditor<QJsonObject, CMessageEditor>("{message}"); // IPublishedFileService::QueryFiles
+        registerTypeAndEditor<int, CEnumEditor>("{enum}"); // IPublishedFileService::QueryFiles
     }
 
 
