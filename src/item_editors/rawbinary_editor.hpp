@@ -1,7 +1,4 @@
 #pragma once
-#include <memory>
-
-#include "QLineEdit"
 #include "gui/hex_editor/dlg_hex_editor.hpp"
 
 
@@ -17,12 +14,6 @@ namespace application
     public:
         CRawBinaryEditor(QWidget* Parent_);
         ~CRawBinaryEditor();
-
-        //QByteArray GetValue() const;
-        //void SetValue(const QByteArray& Value_);
-
-    private:
-        QByteArray m_Value;
     };
 }
 // Кириллица.

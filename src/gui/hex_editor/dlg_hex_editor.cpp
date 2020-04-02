@@ -49,10 +49,10 @@ namespace application
 
     void CDlgHexEditor::onAccept()
     {
-        //QBuffer b(&m_Data);
-        //b.open(QIODevice::WriteOnly);
-        //ui->hexView->document()->saveTo(&b);
-        //b.close();
+        QBuffer b(&m_Data);
+        b.open(QIODevice::WriteOnly);
+        ui->hexView->document()->saveTo(&b);
+        b.close();
         accept();
     }
 

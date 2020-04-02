@@ -6,11 +6,13 @@ namespace application
     CApplication::CApplication(int Argc_, char** Argv_)
         : QApplication(Argc_, Argv_)
         , m_Network(this)
+        , m_ItemEditorFactoryRef(new CItemEditorFactory(QItemEditorFactory::defaultFactory()))
     {
         setApplicationName("Steam Web API Docs");
         setOrganizationName("T-Max");
 
         m_Settings.LoadSettings();
+        QItemEditorFactory::setDefaultFactory(m_ItemEditorFactoryRef);
     }
 
 
@@ -32,9 +34,9 @@ namespace application
     }
 
 
-    CItemEditorFactory& CApplication::ItemEditorFactory()
+    CItemEditorFactory* CApplication::ItemEditorFactory() const
     {
-        return m_ItemEditorFactory;
+        return m_ItemEditorFactoryRef;
     }
 }
 // Кириллица.

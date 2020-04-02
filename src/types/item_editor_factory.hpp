@@ -1,5 +1,6 @@
 #pragma once
 #include "QItemEditorFactory"
+#include "QPointer"
 
 
 namespace application
@@ -8,7 +9,7 @@ namespace application
     class CItemEditorFactory final : public QItemEditorFactory
     {
     public:
-        CItemEditorFactory();
+        CItemEditorFactory(const QItemEditorFactory* DefaultFactory_);
         ~CItemEditorFactory() = default;
 
 
@@ -18,7 +19,6 @@ namespace application
 
     public:
         QVariant CreateVariant(const QString& TypeName_) const;
-
 
     private:
         template<class TType, class TEditor>

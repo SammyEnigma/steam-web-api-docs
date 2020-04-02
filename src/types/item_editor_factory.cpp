@@ -21,11 +21,9 @@ namespace application
     }
 
 
-    CItemEditorFactory::CItemEditorFactory()
-        : m_DefaultFactoryRef(defaultFactory())
+    CItemEditorFactory::CItemEditorFactory(const QItemEditorFactory* DefaultFactory_)
+        : m_DefaultFactoryRef(DefaultFactory_)
     {
-        setDefaultFactory(this);
-
         registerTypeAndEditor<QString, CStringEditor>("string"); // +
         registerTypeAndEditor<quint32, CUint32Editor>("uint32"); // +
         registerTypeAndEditor<quint64, CUint64Editor>("uint64"); // +

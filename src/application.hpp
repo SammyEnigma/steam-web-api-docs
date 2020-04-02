@@ -20,12 +20,12 @@ namespace application
 
         CSettings& Settings();
         CNetwork& Network();
-        CItemEditorFactory& ItemEditorFactory();
+        CItemEditorFactory* ItemEditorFactory() const;
 
     private:
         CSettings m_Settings;
         CNetwork m_Network;
-        CItemEditorFactory m_ItemEditorFactory;
+        CItemEditorFactory* m_ItemEditorFactoryRef = nullptr;
     };
 }
 
@@ -53,6 +53,6 @@ inline application::CNetwork* Network()
 inline application::CItemEditorFactory* ItemEditorFactory()
 {
     application::CApplication* app = Application();
-    return app ? &app->ItemEditorFactory() : nullptr;
+    return app ? app->ItemEditorFactory() : nullptr;
 }
 // Кириллица.
