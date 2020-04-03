@@ -31,7 +31,7 @@ namespace application
         registerTypeAndEditor<bool, CBoolEditor>("bool");                   // + IDOTA2Match_570::GetMatchDetails
         registerTypeAndEditor<QByteArray, CRawBinaryEditor>("rawbinary");   // + ISteamUserAuth::AuthenticateUser
         registerTypeAndEditor<QJsonObject, CMessageEditor>("{message}");    //   IPublishedFileService::QueryFiles
-        registerTypeAndEditor<int, CEnumEditor>("{enum}");                  //   IPublishedFileService::QueryFiles
+        registerTypeAndEditor<int, CEnumEditor>("{enum}");                  // + IPublishedFileService::QueryFiles
     }
 
 

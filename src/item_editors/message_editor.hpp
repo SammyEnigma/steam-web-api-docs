@@ -1,23 +1,21 @@
 #pragma once
-#include "QLabel"
-#include "QJsonObject"
+#include "QJsonDocument"
+
+#include "gui/json_editor/dlg_json_editor.hpp"
 
 
 namespace application
 {
-    /// Item editor for "{message}" (QJsonObject?) type.
-    class CMessageEditor : public QLabel
+    /// Item editor for "{message}" (QJsonDocument) type.
+    class CMessageEditor : public CDlgJsonEditor
     {
         Q_OBJECT;
         Q_DISABLE_COPY(CMessageEditor);
-        Q_PROPERTY(QJsonObject value READ GetValue WRITE SetValue USER true);
+        Q_PROPERTY(QJsonDocument value READ GetDocument WRITE SetDocument USER true);
 
     public:
         CMessageEditor(QWidget* Parent_);
-        ~CMessageEditor() = default;
-        
-        QJsonObject GetValue() const;
-        void SetValue(const QJsonObject& Value_);
+        ~CMessageEditor();
     };
 }
 // Кириллица.
