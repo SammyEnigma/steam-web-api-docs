@@ -49,6 +49,7 @@ namespace application
 
     void CDlgHexEditor::onAccept()
     {
+        m_Data.clear();
         QBuffer b(&m_Data);
         b.open(QIODevice::WriteOnly);
         ui->hexView->document()->saveTo(&b);
