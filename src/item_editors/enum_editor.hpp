@@ -1,11 +1,11 @@
 #pragma once
-#include "QLabel"
+#include "QSpinBox"
 
 
 namespace application
 {
-    /// Item editor for "{enum}" (???) type.
-    class CEnumEditor : public QLabel
+    /// Item editor for "{enum}" (int) type.
+    class CEnumEditor : public QSpinBox
     {
         Q_OBJECT;
         Q_DISABLE_COPY(CEnumEditor);

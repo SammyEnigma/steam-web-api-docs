@@ -1,26 +1,26 @@
 #include "enum_editor.hpp"
 
 
+using namespace std;
+
 namespace application
 {
     CEnumEditor::CEnumEditor(QWidget* Parent_)
-        : QLabel(Parent_)
+        : QSpinBox(Parent_)
     {
-        setText("Редактор {enum} не реализован");
+        setRange(numeric_limits<int>::min(), numeric_limits<int>::max());
     }
 
 
     int CEnumEditor::GetValue() const
     {
-        return 0;
+        return value();
     }
 
 
     void CEnumEditor::SetValue(int Value_)
     {
-        // TODO.
-        Q_UNUSED(Value_);
+        setValue(Value_);
     }
-
 }
 // Кириллица.

@@ -15,6 +15,9 @@ namespace application
     {
         m_Name = ParameterData_[sName].toString();
         m_Type = ParameterData_[sType].toString();
+
+        if (m_Type == "{enum}")
+            int a = 3;
         m_Description = ParameterData_[sDescription].toString();
         m_Optional = ParameterData_[sOptional].toBool();
     }
